@@ -1,2 +1,3 @@
-# CSC261
-Projects
+# CSC261 Database Systems
+3 Milestones
+
