@@ -1,0 +1,13 @@
+Login Page: 
+
+https://betaweb.csug.rochester.edu/~zzh133/Login%20page.html
+
+How to get into the file:
+
+You need to create a user name for student account, faculty account. But for manager account, you need to create a manager account into the database by yourself.
+
+Contribution
+
+Zhenhao Zhang zzh133@u.rochester.edu 32277234 35%
+Mark Xu kxu28@u.rochester.edu 32025712 35%
+Junhao Zhou 30%
