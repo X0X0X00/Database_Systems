@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Books</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #495057;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 4px;
+        }
+        .nav a:hover {
+            background-color: #007bff;
+            transform: scale(1.1);
+        }
+        .nav a.active {
+            background-color: #007bff;
+        }
+        .container {
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        /* 更新的搜索框样式 */
+        .search-box {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            width: 97%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .search-box form {
+            width: 100%;
+        }
+
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input[type="text"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        .book-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .book-item {
+            display: flex;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            gap: 24px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .book-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .book-cover {
+            width: 150px;
+            flex-shrink: 0;
+        }
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .book-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #343a40;
+            margin: 0 0 8px 0;
+        }
+        .book-author {
+            font-size: 1.1em;
+            color: #666;
+            margin: 0 0 16px 0;
+        }
+        .book-availability {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+            color: #555;
+        }
+        .book-abstract {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .category-button {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 15px;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .category-button:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        .error-message {
+            color: #dc3545;
+            padding: 15px;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            background-color: #f8d7da;
+            margin-top: 20px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .content {
+                padding: 20px;
+            }
+            .search-box {
+                padding: 0 10px;
+            }
+            .search-box input[type="text"] {
+                padding: 12px 15px;
+            }
+            .book-item {
+                flex-direction: column;
+            }
+            .book-cover {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Library Management System</h1>
+    </div>
+
+    <div class="nav">
+        <a href="LMS Home page.html">HOME</a>
+        <a href="LMS Book page.html" class="active">BOOKS</a>
+        <a href="LMS Contact page.html">CONTACT</a>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>Categories</h3>
+            <button class="category-button" data-category="all">All Books</button>
+            <button class="category-button" data-category="literature">Literature</button>
+            <button class="category-button" data-category="religion">Religion</button>
+            <button class="category-button" data-category="computer-science">Computer Science</button>
+            <button class="category-button" data-category="philosophy">Philosophy</button>
+            <button class="category-button" data-category="science">Science</button>
+            <button class="category-button" data-category="technology">Technology</button>
+            <button class="category-button" data-category="arts">Arts</button>
+            <button class="category-button" data-category="recreation">Recreation</button>
+            <button class="category-button" data-category="history">History</button>
+            <button class="category-button" data-category="geography">Geography</button>
+            <button class="category-button" data-category="business">Business</button>
+            <button class="category-button" data-category="economy">Economy</button>
+            <button class="category-button" data-category="biology">Biology</button>
+            <button class="category-button" data-category="physics">Physics</button>
+        </div>
+        
+        <div class="content">
+            <h1>Search Books</h1>
+            <div class="search-box">
+                <form id="searchForm">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Enter book title, author, or ISBN"
+                        required
+                    >
+                </form>
+            </div>
+
+            <div id="searchResults" class="book-grid">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+        
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                searchByCategory(category);
+            });
+        });
+        
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (!searchTerm.trim()) {
+                return;
+            }
+            
+            document.getElementById('searchResults').innerHTML = '<div class="loading">Searching...</div>';
+            
+            fetch('Search.php?search=' + encodeURIComponent(searchTerm))
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                if (data.trim() === '') {
+                    document.getElementById('searchResults').innerHTML = 
+                        '<div class="no-results">No books found matching your search.</div>';
+                } else {
+                    document.getElementById('searchResults').innerHTML = data;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('searchResults').innerHTML = 
+                    '<div class="error-message">An error occurred while searching. Please try again later.</div>';
+            });
+        }
+
+        function searchByCategory(category) {
+            document.getElementById('searchResults').innerHTML = '<div class="loading">Loading category...</div>';
+            
+            fetch('Search.php?category=' + encodeURIComponent(category))
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                if (data.trim() === '') {
+                    document.getElementById('searchResults').innerHTML = 
+                        '<div class="no-results">No books found in this category.</div>';
+                } else {
+                    document.getElementById('searchResults').innerHTML = data;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('searchResults').innerHTML = 
+                    '<div class="error-message">An error occurred while loading the category. Please try again later.</div>';
+            });
+        }
+    </script>
+
+<!-- Add this right before the closing </body> tag -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categoryButtons = document.querySelectorAll('.category-button');
+            const bookGrid = document.querySelector('.book-grid');
+    
+            // Fetch all books by default when the page loads (set default active as "All Books")
+            fetchBooksByCategory('All Books');
+    
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    let category = this.innerText;
+                    categoryButtons.forEach(btn => btn.classList.remove('active')); // Remove active from all buttons
+                    this.classList.add('active'); // Add active class to the clicked button
+                    fetchBooksByCategory(category);
+                });
+            });
+    
+            function fetchBooksByCategory(category) {
+                fetch('Category search.php?category=' + encodeURIComponent(category))
+                .then(response => response.json())
+                .then(data => {
+                    displayBooks(data);
+                })
+                .catch(error => console.error('Error fetching books:', error));
+            }
+    
+            function displayBooks(books) {
+                bookGrid.innerHTML = '';  // Clear existing books
+    
+                if (books.length === 0) {
+                    bookGrid.innerHTML = "<p>No books found for this category.</p>";
+                } else {
+                    books.forEach(book => {
+                        const bookItem = document.createElement('div');
+                        bookItem.classList.add('book-item');
+                        bookItem.innerHTML = `
+                            <div class="book-cover">
+                                <img src="${book.cover_image}" alt="Book Cover">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-author">${book.author}</p>
+                                <div class="book-availability">
+                                    <span>Total Copies: ${book.total}</span>
+                                    <span>Available: ${book.available}</span>
+                                    <span>Location: ${book.location}</span>
+                                </div>
+                                <p class="book-abstract">${book.description}</p>
+                            </div>
+                        `;
+                        bookGrid.appendChild(bookItem);
+                    });
+                }
+            }
+        });
+    </script>
+    
+    <!-- Add this right before the closing </body> tag -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categoryButtons = document.querySelectorAll('.category-button');
+            const bookGrid = document.querySelector('.book-grid');
+    
+            // Fetch all books by default when the page loads (set default active as "All Books")
+            fetchBooksByCategory('All Books');
+    
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    let category = this.innerText;
+                    categoryButtons.forEach(btn => btn.classList.remove('active')); // Remove active from all buttons
+                    this.classList.add('active'); // Add active class to the clicked button
+                    fetchBooksByCategory(category);
+                });
+            });
+    
+            function fetchBooksByCategory(category) {
+                fetch('Category search.php?category=' + encodeURIComponent(category))
+                .then(response => response.json())
+                .then(data => {
+                    displayBooks(data);
+                })
+                .catch(error => console.error('Error fetching books:', error));
+            }
+    
+            function displayBooks(books) {
+                bookGrid.innerHTML = '';  // Clear existing books
+    
+                if (books.length === 0) {
+                    bookGrid.innerHTML = "<p>No books found for this category.</p>";
+                } else {
+                    books.forEach(book => {
+                        const bookItem = document.createElement('div');
+                        bookItem.classList.add('book-item');
+                        bookItem.innerHTML = `
+                            <div class="book-cover">
+                                <img src="${book.cover_image}" alt="Book Cover">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-author">${book.author}</p>
+                                <div class="book-availability">
+                                    <span>Total Copies: ${book.total}</span>
+                                    <span>Available: ${book.available}</span>
+                                    <span>Location: ${book.location}</span>
+                                </div>
+                                <p class="book-abstract">${book.description}</p>
+                            </div>
+                        `;
+                        bookGrid.appendChild(bookItem);
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

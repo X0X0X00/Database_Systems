@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 保持原有样式不变 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #495057;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 4px;
+        }
+        .nav a:hover {
+            background-color: #007bff;
+            transform: scale(1.1);
+        }
+        .nav a.active {
+            background-color: #007bff;
+            transform: scale(1.1);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 20px;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            min-width: 0;
+        }
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .book-item {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .book-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .book-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .book-item h4 {
+            margin: 15px 0;
+            font-size: 1.4em;
+            color: #343a40;
+            font-weight: 700;
+        }
+        .book-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Library Management System</h1>
+    </div>
+    <div class="nav">
+        <a href="LMS Home page.html" class="active">HOME</a>
+        <a href="LMS_Book_Page.php">BOOKS</a>
+        <a href="cart.php">CART</a>
+        <a href="LMS Contact page.html">CONTACT</a>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="book-grid">
+                <div class="book-item">
+                    <img src="pic/111.jpeg" alt="Beowulf">
+                    <h4>Beowulf</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/112.jpeg" alt="Batman: Year One">
+                    <h4>Batman: Year One</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/113.jpeg" alt="Go Set a Watchman">
+                    <h4>Go Set a Watchman</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/114.jpeg" alt="When You Are Engulfed in Flames">
+                    <h4>When You Are Engulfed in Flames</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/115.jpeg" alt="Daughter of Smoke & Bone">
+                    <h4>Daughter of Smoke & Bone</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/116.jpeg" alt="Red Queen">
+                    <h4>Red Queen</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/139.jpeg" alt="Turtles, Termites, and Traffic Jams">
+                    <h4>The Power of Habit</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/118.jpeg" alt="Midnight in the Garden of Good and Evil">
+                    <h4>Midnight in the Garden of Good and Evil</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/119.jpeg" alt="Hopeless">
+                    <h4>Hopeless</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/120.jpeg" alt="A Little Princess">
+                    <h4>A Little Princess</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/121.jpeg" alt="The Truth About Forever">
+                    <h4>The Truth About Forever</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/122.jpeg" alt="The horse and his boy">
+                    <h4>The horse and his boy</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/123.jpeg" alt="Last Sacrifice">
+                    <h4>Last Sacrifice</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/124.jpeg" alt="Little House on the Prairie">
+                    <h4>Little House on the Prairie</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/125.jpeg" alt="The Velveteen Rabbit">
+                    <h4>The Velveteen Rabbit</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/126.jpeg" alt="Zen and the Art of Motorcycle Maintenance">
+                    <h4>Zen and the Art of Motorcycle Maintenance</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/127.jpeg" alt="Meeting Jesus Again for the First Time">
+                    <h4>Meeting Jesus Again for the First Time</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/140.jpeg" alt="The Nondesigner's Web Book">
+                    <h4>Reading the Bible Again for the First Time</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/129.jpeg" alt="Shadow of the Almighty">
+                    <h4>Shadow of the Almighty</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/130.jpeg" alt="The Dance of the Dissident Daughter">
+                    <h4>The Dance of the Dissident Daughter</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/131.jpeg" alt="C.S. Lewis">
+                    <h4>C.S. Lewis</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/132.jpeg" alt="The Screwtape Letters">
+                    <h4>The Screwtape Letters</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/133.jpeg" alt="Incident Response & Computer Forensics, 2nd Ed.">
+                    <h4>Incident Response & Computer Forensics, 2nd Ed.</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/134.jpeg" alt="C++ Programmer's Notebook">
+                    <h4>C++ Programmer's Notebook</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/141.jpeg" alt="Don't Make Me Think!">
+                    <h4>Java</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/136.jpeg" alt="Data Structures and Abstractions with Java">
+                    <h4>Data Structures and Abstractions with Java</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/137.jpeg" alt="Robin Williams Web Design Workshop">
+                    <h4>Robin Williams Web Design Workshop</h4>
+                    <p>Status: Available</p>
+                </div>
+                <div class="book-item">
+                    <img src="pic/138.jpeg" alt="Structure and Interpretation of Computer Programs">
+                    <h4>Structure and Interpretation of Computer Programs</h4>
+                    <p>Status: Available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container h1 {
+            font-size: 2em;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .login-container p {
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Library Management System</h1>
+        <p>Select your account type:</p>
+
+        <!-- Student Login -->
+        <form action="Student Login page.html" method="GET">
+            <button type="submit">Student Login</button>
+        </form>
+
+        <!-- Faculty Login -->
+        <form action="Faculty Login page.html" method="GET">
+            <button type="submit">Faculty Login</button>
+        </form>
+
+        <!-- Library Manager Login -->
+        <form action="Library Manager Login page.html" method="GET">
+            <button type="submit">Library Manager Login</button>
+        </form>
+
+        <!-- Create Account -->
+        <form action="Create account page.html" method="GET">
+            <button type="submit" style="background-color: #28a745;">Create Account</button>
+        </form>
+    </div>
+
+</body>
+</html>

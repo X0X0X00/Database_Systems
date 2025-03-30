@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #495057;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 4px;
+        }
+
+        .nav a:hover, .nav a.active {
+            background-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 500px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 20px;
+            height: 100%;
+            margin-top: 100px; 
+        }
+
+        .map-placeholder img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .about-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .about-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .about-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .about-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .about-section li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Library Management System</h1>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="LMS Home page.html">HOME</a>
+        <a href="LMS_Book_Page.php">BOOKS</a>
+        <a href="cart.php">CART</a>
+        <a href="LMS Contact page.html" class="active">CONTACT</a>
+    </div>
+
+    <div class="contact-container">
+        <h1 class="page-title">Contact</h1>
+        <p class="subtitle">Get in touch with our library team for any queries or assistance</p>
+
+        <div class="contact-content">
+            <div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <img src="pic/UR_Map.jpeg" alt="River Campus Map">
+                        <h3>Rush Rhees Library - River Campus</h3>
+                    </div>
+                </div>
+                <div class="about-section">
+                    <h3>About the Library Management System</h3>
+                    <p>Welcome to the Library Management System (LMS), a platform designed to streamline the library experience for students. Our LMS allows you to:</p>
+                    <ul>
+                        <li>Search for books and resources available in the library</li>
+                        <li>Borrow, renew, and return books with ease</li>
+                        <li>Stay updated with the latest additions to the library</li>
+                        <li>Access your borrowing history and manage your account</li>
+                    </ul>
+                    <p>If you have any questions or need assistance, please feel free to contact the library staff directly.</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>Rush Rhees Library, 755 Library Road, Rochester, NY 14627</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <span>library@rochester.edu</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <span>(585) 275-5804</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🕒</i>
+                        <span>Open 24/7 during academic year</span>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

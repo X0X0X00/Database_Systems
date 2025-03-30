@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Manager Login - Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #007bff;
+            text-decoration: underline;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        .back-link:hover {
+            color: #0056b3;
+        }
+        .login-container h1 {
+            font-size: 2em;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .forgot-password a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Back Link -->
+        <a href="Login page.html" class="back-link">&larr; Back</a>
+
+        <h1>Library Manager Login</h1>
+        <form action="Check_manager_login.php" method="POST">
+            <input type="text" name="m_id" placeholder="Manager ID" required>
+            <input type="password" name="m_password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <!-- Forgot Password -->
+        <div class="forgot-password">
+            <a href="forgot_password.html">Forgot Password?</a>
+        </div>
+    </div>
+
+</body>
+</html>
